@@ -33,6 +33,7 @@ public class jogoDaVelha {
             }
 
             while (!venceu && jogadas < 9) {
+                // Exibe o tabuleiro
                 System.out.println("\nJOGO:");
                 for (int i = 0; i < 3; i++) {
                     for (int y = 0; y < 3; y++) {
@@ -56,8 +57,8 @@ public class jogoDaVelha {
                 matriz[linha][coluna] = simbolo;
                 jogadas++;
 
-
-                if (venceu) {
+                if (verificarVencedor(matriz, simbolo)) {
+                    venceu = true;
                     System.out.println("\nJOGO:");
                     for (int i = 0; i < 3; i++) {
                         for (int y = 0; y < 3; y++) {
@@ -82,6 +83,27 @@ public class jogoDaVelha {
 
         scanner.close();
     }
-}
 
-         
+    public static boolean verificarVencedor(String[][] matriz, String simbolo) {
+        for (int i = 0; i < 3; i++) {
+
+            if (simbolo.equals(matriz[i][0]) && simbolo.equals(matriz[i][1]) && simbolo.equals(matriz[i][2])) {
+                return true;
+            }
+
+            if (simbolo.equals(matriz[0][i]) && simbolo.equals(matriz[1][i]) && simbolo.equals(matriz[2][i])) {
+                return true;
+            }
+        }
+
+
+        if (simbolo.equals(matriz[0][0]) && simbolo.equals(matriz[1][1]) && simbolo.equals(matriz[2][2])) {
+            return true;
+        }
+        if (simbolo.equals(matriz[0][2]) && simbolo.equals(matriz[1][1]) && simbolo.equals(matriz[2][0])) {
+            return true;
+        }
+
+        return false;
+    }
+}

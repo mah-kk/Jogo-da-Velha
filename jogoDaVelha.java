@@ -33,7 +33,7 @@ public class jogoDaVelha {
             }
 
             while (!venceu && jogadas < 9) {
-                // Exibe o tabuleiro
+
                 System.out.println("\nJOGO:");
                 for (int i = 0; i < 3; i++) {
                     for (int y = 0; y < 3; y++) {
